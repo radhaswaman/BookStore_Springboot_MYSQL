@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Store - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">Simple BookStore</a>
+        <div>
+            <a class="btn btn-outline-primary me-2" href="/catalog">Catalog</a>
+            <th:block th:if="${user == null}">
+                <a class="btn btn-primary" href="/login">Login</a>
+            </th:block>
+            <th:block th:if="${user != null}">
+                <span class="me-2">Welcome, <b th:text="${user.username}"></b></span>
+                <form method="post" action="/logout" style="display:inline">
+                    <button class="btn btn-sm btn-outline-secondary">Logout</button>
+                </form>
+            </th:block>
+        </div>
+    </div>
+</nav>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Welcome to the Simple Book Store</h1>
+            <p>Browse a small catalog of books, register, and login.</p>
+            <a href="/catalog" class="btn btn-primary">View Catalog</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
